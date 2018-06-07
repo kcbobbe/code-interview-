@@ -8,8 +8,8 @@ class App extends Component {
   render () {
     return (
       <div className='App'>
-        {/* <Dashboard /> */}
-        <Login />
+        <Dashboard />
+        {/* <Login /> */}
         {/* hello */}
       </div>
     )
