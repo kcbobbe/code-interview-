@@ -3,13 +3,17 @@ import './App.css'
 import 'shoelace-css/dist/shoelace.css'
 import Question from './Question'
 import request from 'superagent'
+import AskQuestionForm from './AskQuestionForm'
 
 class Dashboard extends Component {
   constructor () {
     super()
     this.state = {
-      questions: []
+      questions: [],
+      askQuestion: false
     }
+
+    this.askQuestionForm = this.askQuestionForm.bind(this)
   }
 
   componentDidMount () {
@@ -23,6 +27,12 @@ class Dashboard extends Component {
       })
   }
 
+  askQuestionForm () {
+    this.setState({
+      askQuestion: true
+    })
+  }
+
   render () {
     return (
       <div className='Dashboard'>
@@ -30,20 +40,26 @@ class Dashboard extends Component {
           <h1 className='title'>Interview Questions</h1>
           <button className='login'>Login</button>
         </header>
-        <div className='container'>
-          <div className='input-group'>
-            <input type='text' placeholder='search...' />
-            <button type='button' className='button'>Submit</button>
+        {this.state.askQuestion ? (
+          <div className='container'>
+            <AskQuestionForm />
           </div>
-          <button>Ask a question</button>
-          <div className='questions-container'>
-            {this.state.questions.map((question, idx) => (
-              <div key={idx}>
-                <Question question={question} />
-              </div>
-            ))}
+        ) : (
+          <div className='container'>
+            <div className='input-group'>
+              <input type='text' placeholder='search...' />
+              <button type='button' className='button'>Submit</button>
+            </div>
+            <button onClick={this.askQuestionForm} >Ask a question</button>
+            <div className='questions-container'>
+              {this.state.questions.map((question, idx) => (
+                <div key={idx}>
+                  <Question question={question} />
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     )
   }
