@@ -1,0 +1,38 @@
+{
+  "Answers": [
+    {
+      "user_id": "Katie",
+      "question_id": "1",
+      "text": "The best programming language is JavaScript."
+    },
+    {
+      "user_id": "Sarah",
+      "question_id": "2",
+      "text": "The best flavor of ice cream is chocolate."
+    }
+  ],
+
+  "Users": [
+    {
+      "username": "Katie",
+      "password_digest": "Chapel Hill",
+      "api_token": "405a74b9-6ba7-4dc5-9d1d-773715a82714",
+      "admin": "405a74b9-6ba7-4dc5-9d1d-773715a82714",
+      "email_address":""
+
+    }
+  ],
+
+  "Questions": [
+    {
+      "title": "What is the best programming language?",
+      "body": "Chapel Hill",
+      "user-id": "1"
+    },
+    {
+      "title": "What is the best flavor of ice cream?",
+      "body": "I'm trying to pick an ice cream flavor. What is the best flavor?",
+      "user-id": "2"
+    }
+  ]
+}
