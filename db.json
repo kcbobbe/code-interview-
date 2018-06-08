@@ -27,12 +27,12 @@
     {
       "title": "What is the best programming language?",
       "body": "JavaScript",
-      "user-id": "1"
+      "userId": "1"
     },
     {
       "title": "What is the best flavor of ice cream?",
       "body": "I'm trying to pick an ice cream flavor. What is the best flavor?",
-      "user-id": "2"
+      "userId": "2"
     }
   ]
 }

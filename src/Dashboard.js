@@ -15,6 +15,13 @@ class Dashboard extends Component {
 
     this.askQuestionForm = this.askQuestionForm.bind(this)
     this.getQuestions = this.getQuestions.bind(this)
+    this.submitOrCancel = this.submitOrCancel.bind(this)
+  }
+
+  submitOrCancel () {
+    this.setState({
+      askQuestion: false
+    })
   }
 
   componentDidMount () {
@@ -54,7 +61,8 @@ class Dashboard extends Component {
         </header>
         {this.state.askQuestion ? (
           <div className='container'>
-            <AskQuestionForm askQuestion={this.state.askQuestion} updateQuestions={this.getQuestions} />
+            {/* <AskQuestionForm askQuestion={this.state.askQuestion} updateQuestions={this.getQuestions} /> */}
+            <AskQuestionForm submitOrCancel={this.submitOrCancel} />
           </div>
         ) : (
           <div className='container'>
