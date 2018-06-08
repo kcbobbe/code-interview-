@@ -5,6 +5,7 @@
 .Question {
   cursor:pointer;
   margin:50px 0;
+  background-color:whitesmoke;
 }
 
 .Login {
@@ -13,7 +14,9 @@
   max-width: 55%;
 }
 
-
+.container {
+  background-color:grey;
+}
 
 /* .App-logo {
   animation: App-logo-spin infinite 20s linear;
