@@ -10,12 +10,14 @@ class Dashboard extends Component {
     super()
     this.state = {
       questions: [],
-      askQuestion: false
+      askQuestion: false,
+      searchValue: ''
     }
 
     this.askQuestionForm = this.askQuestionForm.bind(this)
     this.getQuestions = this.getQuestions.bind(this)
     this.submitOrCancel = this.submitOrCancel.bind(this)
+    this.handleSearch = this.handleSearch.bind(this)
   }
 
   submitOrCancel () {
@@ -33,6 +35,12 @@ class Dashboard extends Component {
           questions: res.body
         })
       })
+  }
+
+  handleSearch (event) {
+    this.setState({
+      searchValue: event.target.value
+    })
   }
 
   askQuestionForm () {
@@ -53,35 +61,44 @@ class Dashboard extends Component {
   }
 
   render () {
-    return (
-      <div className='Dashboard'>
-        <header className='header'>
-          <h1 className='title'>Interview Questions</h1>
-          <button className='login'>Login</button>
-        </header>
-        {this.state.askQuestion ? (
-          <div className='container'>
-            {/* <AskQuestionForm askQuestion={this.state.askQuestion} updateQuestions={this.getQuestions} /> */}
-            <AskQuestionForm submitOrCancel={this.submitOrCancel} />
+    if (this.state.askQuestion) {
+      return (
+        <div>
+          <AskQuestionForm submitOrCancel={this.submitOrCancel} />
+        </div>
+      )
+    } else if (this.state.searchValue) {
+      const filteredArray = this.state.questions.filter(question => question.title.toLowerCase().includes(this.state.searchValue.toLowerCase()))
+      return (
+        <div>
+          <div className='input-group'>
+            <input type='text' placeholder='search...' onChange={this.handleSearch} />
           </div>
-        ) : (
-          <div className='container'>
-            <div className='input-group'>
-              <input type='text' placeholder='search...' />
-              <button type='button' className='button'>Submit</button>
+          <button onClick={this.askQuestionForm} >Ask a question</button>
+          {filteredArray.map((question, idx) => (
+            <div key={idx}>
+              <Question question={question} />
             </div>
-            <button onClick={this.askQuestionForm} >Ask a question</button>
-            <div className='questions-container'>
-              {this.state.questions.map((question, idx) => (
-                <div key={idx}>
-                  <Question question={question} />
-                </div>
-              ))}
-            </div>
+          ))}
+        </div>
+      )
+    } else {
+      return (
+        <div className='Dashboard'>
+          <div className='input-group'>
+            <input type='text' placeholder='search...' onChange={this.handleSearch} />
           </div>
-        )}
-      </div>
-    )
+          <button onClick={this.askQuestionForm} >Ask a question</button>
+          <div className='questions-container'>
+            {this.state.questions.map((question, idx) => (
+              <div key={idx}>
+                <Question question={question} />
+              </div>
+            ))}
+          </div>
+        </div>
+      )
+    }
   }
 }
 
