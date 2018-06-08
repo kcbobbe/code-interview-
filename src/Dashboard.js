@@ -14,6 +14,7 @@ class Dashboard extends Component {
     }
 
     this.askQuestionForm = this.askQuestionForm.bind(this)
+    this.getQuestions = this.getQuestions.bind(this)
   }
 
   componentDidMount () {
@@ -33,6 +34,17 @@ class Dashboard extends Component {
     })
   }
 
+  getQuestions () {
+    request
+      .get('http://localhost:8000/Questions')
+      .then(res => {
+        console.log(res)
+        this.setState({
+          questions: res.body
+        })
+      })
+  }
+
   render () {
     return (
       <div className='Dashboard'>
@@ -42,7 +54,7 @@ class Dashboard extends Component {
         </header>
         {this.state.askQuestion ? (
           <div className='container'>
-            <AskQuestionForm />
+            <AskQuestionForm askQuestion={this.state.askQuestion} updateQuestions={this.getQuestions} />
           </div>
         ) : (
           <div className='container'>
