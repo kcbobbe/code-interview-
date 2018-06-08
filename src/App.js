@@ -3,21 +3,21 @@ import './App.css'
 import 'shoelace-css/dist/shoelace.css'
 import Dashboard from './Dashboard'
 import Login from './Login'
-import DashboardLoggedIn from './DashboardLoggedIn';
+import DashboardLoggedIn from './DashboardLoggedIn'
 
 class App extends Component {
   constructor () {
     super()
     this.state = {
-      loggedIn: false
+      token: localStorage.token
     }
 
-    this.checkLogin = this.checkLogin.bind(this)
+    this.updateToken = this.updateToken.bind(this)
   }
 
-  checkLogin () {
+  updateToken () {
     this.setState({
-      loggedIn: true
+      token: localStorage.token
     })
   }
 
@@ -25,10 +25,10 @@ class App extends Component {
     return (
       <div className='App'>
         <div className='container'>
-          {this.state.loggedIn ? (
+          {this.state.token ? (
             <DashboardLoggedIn />
           ) : (
-            <Dashboard loggedIn={this.checkLogin} />
+            <Dashboard updateToken={this.updateToken} />
           )}
         </div>
       </div>
