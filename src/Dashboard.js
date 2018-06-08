@@ -117,11 +117,11 @@ class Dashboard extends Component {
       )
     } else if (this.state.loginClicked) {
       return (
-        <Login cancel={this.cancelLogin} login={this.props.loggedIn} />
+        <Login cancel={this.cancelLogin} updateToken={this.props.updateToken} />
       )
     } else if (this.state.registerClicked) {
       return (
-        <Register cancel={this.cancelRegister} login={this.props.loggedIn} />
+        <Register cancel={this.cancelRegister} updateToken={this.props.updateToken} />
       )
     } else {
       return (
