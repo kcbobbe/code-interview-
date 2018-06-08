@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
 import 'shoelace-css/dist/shoelace.css'
-import request from 'superagent'
+// import request from 'superagent'
 // import Dashboard from './Dashboard'
 // import Login from './Login'
 
@@ -14,27 +14,33 @@ class AskQuestionForm extends Component {
       questionTitle: null,
       questionBody: null
     }
+
+    this.addQuestion = this.addQuestion.bind(this)
+    this.cancelAdd = this.cancelAdd.bind(this)
+    this.questionBody = this.questionBody.bind(this)
+    this.questionTitle = this.questionTitle.bind(this)
   }
   cancelAdd () {
-    this.setState({
-      askQuestion: false
-    })
-    console.log(this.props.askQuestion)
+    this.props.submitOrCancel()
   }
 
-  addQuestion () {
-    request.post('http://localhost:8000/Questions')
-      .send({
-        'title': this.state.questionTitle,
-        'body': this.state.questionBody
-      })
-      .then((res) => {
-        this.setState({
-          askQuestion: false,
-          questionTitle: 'null',
-          questionBody: 'null'
-        })
-      })
+  addQuestion (e) {
+    e.preventDefault()
+    // request
+    //   .post('http://localhost:8000/Questions')
+    //   .send({
+    //     'title': this.state.questionTitle,
+    //     'body': this.state.questionBody,
+    //     'userId': 3
+    //   })
+    //   .then((res) => {
+    //     this.setState({
+    //       askQuestion: false,
+    //       questionTitle: '',
+    //       questionBody: ''
+    //     })
+    //   })
+    this.props.submitOrCancel()
   }
   questionTitle (event) {
     this.setState({
@@ -51,11 +57,11 @@ class AskQuestionForm extends Component {
   render () {
     return (
       <div className='AskQuestionForm'>
-        <form>
-          <input type='text' placeholder='title' onChange={this.questionTitle.bind(this)} />
-          <textarea onChange={this.questionBody.bind(this)}/>
-          <button className='button-danger' onClick={this.cancelAdd.bind(this)}>Cancel</button>
-          <button className='button-success' onClick={this.addQuestion.bind(this)}>Submit</button>
+        <form onSubmit={this.addQuestion}>
+          <input type='text' placeholder='title' onChange={this.questionTitle} />
+          <textarea onChange={this.questionBody} />
+          <button className='button-danger' onClick={this.cancelAdd}>Cancel</button>
+          <button className='button-success' type='submit'>Submit</button>
         </form>
       </div>
     )
