@@ -28,7 +28,7 @@ class DashboardLoggedIn extends Component {
 
   componentDidMount () {
     request
-      .get('http://localhost:8000/Questions')
+      .get('https://whispering-stream-62515.herokuapp.com/api/v1/questions')
       .then(res => {
         console.log(res)
         this.setState({
