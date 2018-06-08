@@ -5,6 +5,7 @@ import Question from './Question'
 import request from 'superagent'
 import AskQuestionForm from './AskQuestionForm'
 import Login from './Login'
+import Register from './Register'
 
 class Dashboard extends Component {
   constructor () {
@@ -13,7 +14,8 @@ class Dashboard extends Component {
       questions: [],
       askQuestion: false,
       searchValue: '',
-      loginClicked: false
+      loginClicked: false,
+      registerClicked: false
     }
 
     this.askQuestionForm = this.askQuestionForm.bind(this)
@@ -22,6 +24,8 @@ class Dashboard extends Component {
     this.handleSearch = this.handleSearch.bind(this)
     this.clickLogin = this.clickLogin.bind(this)
     this.cancelLogin = this.cancelLogin.bind(this)
+    this.clickRegister = this.clickRegister.bind(this)
+    this.cancelRegister = this.cancelRegister.bind(this)
   }
 
   submitOrCancel () {
@@ -42,9 +46,21 @@ class Dashboard extends Component {
     })
   }
 
+  clickRegister () {
+    this.setState({
+      registerClicked: true
+    })
+  }
+
+  cancelRegister () {
+    this.setState({
+      registerClicked: false
+    })
+  }
+
   componentDidMount () {
     request
-      .get('http://localhost:8000/Questions')
+      .get('https://whispering-stream-62515.herokuapp.com/api/v1/questions')
       .then(res => {
         console.log(res)
         this.setState({
@@ -82,8 +98,9 @@ class Dashboard extends Component {
       return (
         <div>
           <header className='header'>
-            <h1 className='title'>Interview Questions</h1>
+            <h1 className='title'>code{'{interview}'}</h1>
             <button className='login' onClick={this.clickLogin}>Login</button>
+            <button onClick={this.clickRegister}>Register</button>
           </header>
           <div>
             <div className='input-group'>
@@ -102,12 +119,17 @@ class Dashboard extends Component {
       return (
         <Login cancel={this.cancelLogin} login={this.props.loggedIn} />
       )
+    } else if (this.state.registerClicked) {
+      return (
+        <Register cancel={this.cancelRegister} login={this.props.loggedIn} />
+      )
     } else {
       return (
         <div>
           <header className='header'>
-            <h1 className='title'>Interview Questions</h1>
+            <h1 className='title'>code{'{interview}'}</h1>
             <button className='login' onClick={this.clickLogin}>Login</button>
+            <button onClick={this.clickRegister}>Register</button>
           </header>
           <div className='Dashboard'>
             <div className='input-group'>
