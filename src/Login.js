@@ -27,12 +27,13 @@ class Login extends Component {
 
     handleClick = (event) => {
         event.preventDefault()
+        this.props.login()
     }
 
     render () {
     return (
         <div className='Login'>
-        <h1>Log-in:</h1>
+        <h1>Login</h1>
             <div className="input-field">
                 <label>Name</label>
                 <input name="username" value={this.state.username} onChange={this.handleChangeUser} type="text"/>
@@ -43,7 +44,8 @@ class Login extends Component {
                 <input name="password" value={this.state.password} onChange={this.handleChangePass} type="password"/>
             </div>
 
-            <button type="button" className="button" onClick={this.handleClick}>Log-in</button>
+            <button type="button" className="button" onClick={this.handleClick}>Login</button>
+            <button className='button-danger' onClick={this.props.cancel}>Cancel</button>
         </div>
     )
     }
