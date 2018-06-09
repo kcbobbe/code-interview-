@@ -9,7 +9,8 @@ class App extends Component {
   constructor () {
     super()
     this.state = {
-      token: localStorage.token
+      token: localStorage.token,
+      id: localStorage.id
     }
 
     this.updateToken = this.updateToken.bind(this)
@@ -17,7 +18,8 @@ class App extends Component {
 
   updateToken () {
     this.setState({
-      token: localStorage.token
+      token: localStorage.token,
+      id: localStorage.id
     })
   }
 

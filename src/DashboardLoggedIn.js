@@ -97,7 +97,7 @@ class DashboardLoggedIn extends Component {
             <button className='profileButton' onClick={this.clickProfile}>Welcome User!</button>
           </header>
           <div className='input-group'>
-            <span class='input-addon input-addon-xl'>Q:</span>
+            <span className='input-addon input-addon-xl'>Q:</span>
             <input type='text'className='input-xl searchBar' placeholder='search...' onChange={this.handleSearch} />
           </div>
           <div className='questions-container'>
@@ -128,7 +128,7 @@ class DashboardLoggedIn extends Component {
             <button className='profileButton' onClick={this.clickProfile}>Welcome User!</button>
           </header>
           <div className='input-group'>
-            <span class='input-addon input-addon-xl'>Q:</span>
+            <span className='input-addon input-addon-xl'>Q:</span>
             <input className='searchBar input-xl' type='text' placeholder='search...' onChange={this.handleSearch} />
           </div>
           <div className='questions-container'>

@@ -135,7 +135,7 @@ class Dashboard extends Component {
           </header>
           <div className='Dashboard'>
             <div className='input-group'>
-              <span class='input-addon input-addon-xl'>Q:</span>
+              <span className='input-addon input-addon-xl'>Q:</span>
               <input type='text' className='searchBar input-xl' placeholder='search...' onChange={this.handleSearch} />
             </div>
             <div className='questions-container'>
