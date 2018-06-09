@@ -96,9 +96,9 @@ class DashboardLoggedIn extends Component {
             <h1 className='title'>code{'{interview}'}</h1>
             <button className='profileButton' onClick={this.clickProfile}>Welcome User!</button>
           </header>
-          <div className='input-group searchBar'>
+          <div className='input-group'>
             <span class='input-addon input-addon-xl'>Q:</span>
-            <input type='text'className='input-xl' placeholder='search...' onChange={this.handleSearch} />
+            <input type='text'className='input-xl searchBar' placeholder='search...' onChange={this.handleSearch} />
           </div>
           <div className='questions-container'>
             {filteredArray.map((question, idx) => (
@@ -128,7 +128,8 @@ class DashboardLoggedIn extends Component {
             <button className='profileButton' onClick={this.clickProfile}>Welcome User!</button>
           </header>
           <div className='input-group'>
-            <input className='searchBar' type='text' placeholder='search...' onChange={this.handleSearch} />
+            <span class='input-addon input-addon-xl'>Q:</span>
+            <input className='searchBar input-xl' type='text' placeholder='search...' onChange={this.handleSearch} />
           </div>
           <div className='questions-container'>
             {this.state.questions.map((question, idx) => (

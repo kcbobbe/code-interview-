@@ -56,18 +56,19 @@ class Login extends Component {
         <div className='Login'>
             <h1>Login</h1>
             <form onSubmit={this.handleSubmit}>
-                <div className="input-field">
-                    <label>Name</label>
-                    <input name="username" value={this.state.username} onChange={this.handleChange} type="text"/>
+                <div className="input-field input-group">
+                    <span class='input-addon input-addon-l'>Name:</span>
+                    <input name="username" value={this.state.username} className='login-input input-l' onChange={this.handleChange} type="text"/>
                 </div>
 
-                <div className="input-field password">
-                    <label>Password</label>
-                    <input name="password" value={this.state.password} onChange={this.handleChange} type="password"/>
+                <div className="input-field input-group password">
+                    <span class='input-addon input-addon-l'>Password:</span>
+                    <input name="password" value={this.state.password} className ='login-input input-l' onChange={this.handleChange} type="password"/>
                 </div>
-
-                <button type="submit" className="button">Login</button>
-                <button className='button-danger' onClick={this.props.cancel}>Cancel</button>
+                <div className='login-buttons input-group'>
+                    <button type="submit" className="button">Login</button>
+                    <button className='button-danger' onClick={this.props.cancel}>Cancel</button>
+                </div>
             </form>
         </div>
     )

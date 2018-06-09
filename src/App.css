@@ -38,8 +38,8 @@
   margin:10px;
 }
 
-.searchBar{
-  
+.input-group{
+  width:10px;
 }
 
 .questions-container {
@@ -64,6 +64,27 @@
 
 .questionBody{
   text-align:left;
+}
+
+.input-group{
+  padding: 0 1rem 0 1rem;
+}
+
+.searchBar{
+  width:40px;
+}
+
+.login-buttons button{
+  margin:1rem;
+
+}
+
+.input-addon-l{
+  width:150px;
+}
+
+.input-addon-xl{
+  width:100px;
 }
 /* .App-logo {
   animation: App-logo-spin infinite 20s linear;

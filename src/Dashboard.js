@@ -134,9 +134,9 @@ class Dashboard extends Component {
             <button onClick={this.clickRegister}>Register</button>
           </header>
           <div className='Dashboard'>
-            <div className='input-group searchBar'>
+            <div className='input-group'>
               <span class='input-addon input-addon-xl'>Q:</span>
-              <input type='text' className='input-xl' placeholder='search...' onChange={this.handleSearch} />
+              <input type='text' className='searchBar input-xl' placeholder='search...' onChange={this.handleSearch} />
             </div>
             <div className='questions-container'>
               {this.state.questions.map((question, idx) => (
