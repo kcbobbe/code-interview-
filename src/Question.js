@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
 import 'shoelace-css/dist/shoelace.css'
+import showdown from 'showdown'
 
 class Question extends Component {
   constructor () {
@@ -17,11 +18,15 @@ class Question extends Component {
   }
 
   render () {
+    const converter = new showdown.Converter()
     let question = this.props.question
     return (
       <div onClick={this.expandQuestion} className='Question'>
         <h1>{question.title}</h1>
-        {this.state.questionExpanded && (<p>{question.body}</p>)}
+        {this.state.questionExpanded && (
+          // <h2>dangerouslySetInnerHTML={{__html: converter.makeHtml(question.body)}}</h2>
+          <div dangerouslySetInnerHTML={{__html: converter.makeHtml(question.body)}} />
+        )}
       </div>
     )
   }
