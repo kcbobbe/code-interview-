@@ -4,7 +4,14 @@
 
 .Question {
   cursor:pointer;
-  margin:50px 0;
+  margin:10px;
+  background-color:rgba(200,200,200,.9);
+  border:2px solid black;
+  padding:5px;
+}
+
+.Question:hover {
+  background-color:rgba(150,150,150,1);
 }
 
 .Login {
@@ -13,8 +20,72 @@
   max-width: 55%;
 }
 
+.container {
+  /* background-color:grey; */
+}
 
+.header {
+  background-color:grey;
+  border: 2px solid black;
+  display:flex;
+  justify-content:space-between;
+  margin:20px 10px 20px 10px;
+  padding:10px;
 
+}
+
+.header button {
+  margin:10px;
+}
+
+.input-group{
+  width:10px;
+}
+
+.questions-container {
+  margin:20px 10px 10px 10px;
+  background-color:grey;
+  padding:10px;
+  border: 2px solid black;
+  max-height:400px;
+  overflow:scroll;
+}
+.questionbox {
+  text-align:left;
+}
+
+.q {
+  margin-right:1rem;
+}
+
+.a {
+  margin-right:.5rem;
+}
+
+.questionBody{
+  text-align:left;
+}
+
+.input-group{
+  padding: 0 1rem 0 1rem;
+}
+
+.searchBar{
+  width:40px;
+}
+
+.login-buttons button{
+  margin:1rem;
+
+}
+
+.input-addon-l{
+  width:150px;
+}
+
+.input-addon-xl{
+  width:100px;
+}
 /* .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;

@@ -27,6 +27,8 @@ class Question extends Component {
           // <h2>dangerouslySetInnerHTML={{__html: converter.makeHtml(question.body)}}</h2>
           <div dangerouslySetInnerHTML={{__html: converter.makeHtml(question.body)}} />
         )}
+        <h2 className='questionbox'><span className='q'>Q:</span>{question.title}</h2>
+        {this.state.questionExpanded && (<p className='questionBody'><span className='a'>A:</span>{question.body}</p>)}
       </div>
     )
   }
