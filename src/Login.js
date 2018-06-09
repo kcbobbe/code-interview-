@@ -8,7 +8,8 @@ class Login extends Component {
         super()
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            userId: ''
         }
     }
 
@@ -33,6 +34,9 @@ class Login extends Component {
             console.log(res)
             localStorage.token = res.body.token
             this.props.updateToken()
+            this.setState({
+                userId :res.id
+            })
             })
             .catch(err => {
                 const form = document.querySelectorAll('.input-field')

@@ -4,6 +4,7 @@ import 'shoelace-css/dist/shoelace.css'
 import Question from './Question'
 import request from 'superagent'
 import AskQuestionForm from './AskQuestionForm'
+import Profile from './Profile'
 
 class DashboardLoggedIn extends Component {
   constructor () {
@@ -11,6 +12,7 @@ class DashboardLoggedIn extends Component {
     this.state = {
       questions: [],
       askQuestion: false,
+      profileClicked: false,
       searchValue: ''
     }
 
@@ -18,11 +20,19 @@ class DashboardLoggedIn extends Component {
     this.getQuestions = this.getQuestions.bind(this)
     this.submitOrCancel = this.submitOrCancel.bind(this)
     this.handleSearch = this.handleSearch.bind(this)
+    this.clickProfile = this.clickProfile.bind(this)
+    this.closeProfile = this.closeProfile.bind(this)
   }
 
   submitOrCancel () {
     this.setState({
       askQuestion: false
+    })
+  }
+
+  closeProfile () {
+    this.setState({
+      profileClicked: false
     })
   }
 
@@ -49,6 +59,12 @@ class DashboardLoggedIn extends Component {
     })
   }
 
+  clickProfile () {
+    this.setState({
+      profileClicked: true
+    })
+  }
+
   getQuestions () {
     request
       .get('http://localhost:8000/Questions')
@@ -64,13 +80,22 @@ class DashboardLoggedIn extends Component {
     if (this.state.askQuestion) {
       return (
         <div>
-          <AskQuestionForm submitOrCancel={this.submitOrCancel} />
+          <header className='header'>
+            <h1 className='title'>code{'{interview}'}</h1>
+          </header>
+          <div>
+            <AskQuestionForm submitOrCancel={this.submitOrCancel} />
+          </div>
         </div>
       )
     } else if (this.state.searchValue) {
       const filteredArray = this.state.questions.filter(question => question.title.toLowerCase().includes(this.state.searchValue.toLowerCase()))
       return (
         <div>
+          <header className='header'>
+            <h1 className='title'>code{'{interview}'}</h1>
+            <button className='profileButton' onClick={this.clickProfile}>Welcome User!</button>
+          </header>
           <div className='input-group'>
             <input type='text' placeholder='search...' onChange={this.handleSearch} />
           </div>
@@ -82,9 +107,22 @@ class DashboardLoggedIn extends Component {
           ))}
         </div>
       )
+    } else if (this.state.profileClicked) {
+      return (
+        <div>
+          <header className='header'>
+            <h1 className='title'>code{'{interview}'}</h1>
+          </header>
+          <Profile updateToken={this.props.updateToken} profileState={this.closeProfile} />
+        </div>
+      )
     } else {
       return (
         <div className='Dashboard'>
+          <header className='header'>
+            <h1 className='title'>code{'{interview}'}</h1>
+            <button className='profileButton' onClick={this.clickProfile}>Welcome User!</button>
+          </header>
           <div className='input-group'>
             <input type='text' placeholder='search...' onChange={this.handleSearch} />
           </div>
