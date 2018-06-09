@@ -41,23 +41,24 @@ class Register extends Component {
         <div className='Register'>
         <h1>Register</h1>
           <form onSubmit={this.handleSubmit}>
-              <div className="input-field">
-                  <label>Name</label>
+              <div className="input-field input-group">
+                <span class='input-addon input-addon-l'>Username:</span>
                   <input name="username" value={this.state.username} onChange={this.handleChange} type="text"/>
               </div>
 
-              <div className="input-field">
-                  <label>Password</label>
+              <div className="input-field input-group">
+                  <span class='input-addon input-addon-l'>Password:</span>
                   <input name="password" value={this.state.password} onChange={this.handleChange} type="password"/>
               </div>
 
-              <div className="input-field">
-                  <label>Email</label>
+              <div className="input-field input-group">
+                  <span class='input-addon input-addon-l'>Email:</span>
                   <input name="email" value={this.state.email} onChange={this.handleChange} type="email"/>
               </div>
-
-              <button type="submit" className="button">Register</button>
-              <button className='button-danger' onClick={this.props.cancel}>Cancel</button>
+              <div className='register-buttons'>
+                  <button type="submit" className="button">Register</button>
+                  <button className='button-danger' onClick={this.props.cancel}>Cancel</button>
+                </div>
             </form>
         </div>
     )
