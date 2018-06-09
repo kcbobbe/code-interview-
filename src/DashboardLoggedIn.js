@@ -96,8 +96,9 @@ class DashboardLoggedIn extends Component {
             <h1 className='title'>code{'{interview}'}</h1>
             <button className='profileButton' onClick={this.clickProfile}>Welcome User!</button>
           </header>
-          <div className='input-group'>
-            <input className='searchBar' type='text' placeholder='search...' onChange={this.handleSearch} />
+          <div className='input-group searchBar'>
+            <span class='input-addon input-addon-xl'>Q:</span>
+            <input type='text'className='input-xl' placeholder='search...' onChange={this.handleSearch} />
           </div>
           <div className='questions-container'>
             {filteredArray.map((question, idx) => (

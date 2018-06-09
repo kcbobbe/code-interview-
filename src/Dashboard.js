@@ -134,10 +134,10 @@ class Dashboard extends Component {
             <button onClick={this.clickRegister}>Register</button>
           </header>
           <div className='Dashboard'>
-            <div className='input-group'>
-              <input type='text' className='searchBar' placeholder='search...' onChange={this.handleSearch} />
+            <div className='input-group searchBar'>
+              <span class='input-addon input-addon-xl'>Q:</span>
+              <input type='text' className='input-xl' placeholder='search...' onChange={this.handleSearch} />
             </div>
-            <button onClick={this.clickLogin}>Login to ask a question</button>
             <div className='questions-container'>
               {this.state.questions.map((question, idx) => (
                 <div key={idx}>
@@ -145,6 +145,7 @@ class Dashboard extends Component {
                 </div>
               ))}
             </div>
+            <button onClick={this.clickLogin}>Login to ask a question</button>
           </div>
         </div>
       )
