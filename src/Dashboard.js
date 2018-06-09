@@ -107,11 +107,13 @@ class Dashboard extends Component {
               <input type='text' placeholder='search...' onChange={this.handleSearch} />
             </div>
             <button onClick={this.clickLogin}>Login to ask a question</button>
-            {filteredArray.map((question, idx) => (
-              <div key={idx}>
-                <Question question={question} />
-              </div>
-            ))}
+            <div className='questions-container'>
+              {filteredArray.map((question, idx) => (
+                <div key={idx}>
+                  <Question question={question} />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       )
@@ -133,7 +135,7 @@ class Dashboard extends Component {
           </header>
           <div className='Dashboard'>
             <div className='input-group'>
-              <input type='text' placeholder='search...' onChange={this.handleSearch} />
+              <input type='text' className='searchBar' placeholder='search...' onChange={this.handleSearch} />
             </div>
             <button onClick={this.clickLogin}>Login to ask a question</button>
             <div className='questions-container'>

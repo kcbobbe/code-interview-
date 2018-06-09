@@ -20,8 +20,8 @@ class Question extends Component {
     let question = this.props.question
     return (
       <div onClick={this.expandQuestion} className='Question'>
-        <h2>{question.title}</h2>
-        {this.state.questionExpanded && (<p>{question.body}</p>)}
+        <h2 className='questionbox'><span className='q'>Q:</span>{question.title}</h2>
+        {this.state.questionExpanded && (<p className='questionBody'><span className='a'>A:</span>{question.body}</p>)}
       </div>
     )
   }

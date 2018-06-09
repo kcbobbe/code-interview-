@@ -97,14 +97,17 @@ class DashboardLoggedIn extends Component {
             <button className='profileButton' onClick={this.clickProfile}>Welcome User!</button>
           </header>
           <div className='input-group'>
-            <input type='text' placeholder='search...' onChange={this.handleSearch} />
+            <input className='searchBar' type='text' placeholder='search...' onChange={this.handleSearch} />
           </div>
-          <button onClick={this.askQuestionForm} >Ask a question</button>
-          {filteredArray.map((question, idx) => (
-            <div key={idx}>
-              <Question question={question} />
-            </div>
-          ))}
+          <div className='questions-container'>
+            {filteredArray.map((question, idx) => (
+              <div key={idx}>
+                <Question question={question} />
+              </div>
+            ))}
+            <button onClick={this.askQuestionForm} >Ask a question</button>
+
+          </div>
         </div>
       )
     } else if (this.state.profileClicked) {
@@ -124,9 +127,8 @@ class DashboardLoggedIn extends Component {
             <button className='profileButton' onClick={this.clickProfile}>Welcome User!</button>
           </header>
           <div className='input-group'>
-            <input type='text' placeholder='search...' onChange={this.handleSearch} />
+            <input className='searchBar' type='text' placeholder='search...' onChange={this.handleSearch} />
           </div>
-          <button onClick={this.askQuestionForm} >Ask a question</button>
           <div className='questions-container'>
             {this.state.questions.map((question, idx) => (
               <div key={idx}>
@@ -134,6 +136,8 @@ class DashboardLoggedIn extends Component {
               </div>
             ))}
           </div>
+          <button onClick={this.askQuestionForm} >Ask a question</button>
+
         </div>
       )
     }
