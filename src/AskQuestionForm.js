@@ -24,13 +24,21 @@ class AskQuestionForm extends Component {
 
   addQuestion (e) {
     e.preventDefault()
-    request
-      .post('https://whispering-stream-62515.herokuapp.com/api/v1/questions')
-      .set('X-Requested-With', 'XMLHttpRequest')
-      .set('Authorization', `Bearer ${localStorage.token}`)
-      .send({
-        title: this.state.questionTitle
-      })
+    if (this.state.questionTitle && this.state.questionBody) {
+      request
+        .post('https://whispering-stream-62515.herokuapp.com/api/v1/questions')
+        .set('X-Requested-With', 'XMLHttpRequest')
+        .set('Authorization', `Bearer ${localStorage.token}`)
+        .send({
+          title: this.state.questionTitle,
+          body: this.state.questionBody
+        })
+        .then(res => {
+          console.log(res.body.data.attributes)
+          let newRes = res.body.data.attributes
+          this.props.addNewQuestion(newRes)
+        })
+    }
 
     this.props.submitOrCancel()
   }

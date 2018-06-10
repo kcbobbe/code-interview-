@@ -28,7 +28,7 @@ class App extends Component {
       <div className='App'>
         <div className='container'>
           {this.state.token ? (
-            <DashboardLoggedIn />
+            <DashboardLoggedIn updateToken={this.updateToken} />
           ) : (
             <Dashboard updateToken={this.updateToken} />
           )}
