@@ -86,6 +86,14 @@
 .input-addon-xl{
   width:100px;
 }
+
+.answer {
+  margin: 20px 10px;
+  background: white;
+  border-radius: 10px;
+}
+
+
 /* .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;

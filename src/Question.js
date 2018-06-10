@@ -2,20 +2,36 @@ import React, { Component } from 'react'
 import './App.css'
 import 'shoelace-css/dist/shoelace.css'
 import showdown from 'showdown'
+// import { request } from 'https';
+import request from 'superagent'
+import Answer from './Answer'
+import AnswerForm from './AnswerForm'
 
 class Question extends Component {
   constructor () {
     super()
     this.state = {
-      questionExpanded: false
+      questionExpanded: false,
+      answers: [],
+      id: ''
     }
     this.expandQuestion = this.expandQuestion.bind(this)
   }
 
   expandQuestion (e) {
     console.log(e.target.dataset.id)
+    const id = e.target.dataset.id
     this.setState({questionExpanded: !this.state.questionExpanded})
-    // console.log(this.state.questionExpanded)
+    request
+      .get(`https://whispering-stream-62515.herokuapp.com/api/v1/questions/${id}`)
+      .set('X-Requested-With', 'XMLHttpRequest')
+      .then(res => {
+        console.log(res)
+        this.setState({
+          answers: res.body.data.attributes.answers,
+          id: res.body.data.attributes.id
+        })
+      })
   }
 
   render () {
@@ -24,13 +40,22 @@ class Question extends Component {
     return (
       <div className='Question'>
         <h1>{question.title}</h1>
-        {this.state.questionExpanded && (
-          // <h2>dangerouslySetInnerHTML={{__html: converter.makeHtml(question.body)}}</h2>
-          <div dangerouslySetInnerHTML={{__html: converter.makeHtml(question.body)}} />
+        <div dangerouslySetInnerHTML={{__html: converter.makeHtml(question.body)}} />
+        {this.state.questionExpanded ? (
+          <div>
+            <button onClick={this.expandQuestion} data-id={question.id} className='answer-button'>Show Less</button>
+            {this.state.answers.map((answer, idx) => (
+              <div className='answer' key={idx}>
+                <Answer answer={answer} />
+              </div>
+            ))}
+            <div className='answer-form'>
+              <AnswerForm id={this.state.id} />
+            </div>
+          </div>
+        ) : (
+          <button onClick={this.expandQuestion} data-id={question.id} className='answer-button'>Show Answers</button>
         )}
-        <h2 className='questionbox'><span className='q'>Q:</span>{question.title}</h2>
-        <button onClick={this.expandQuestion} data-id={question.id}>Show Answers</button>
-        {this.state.questionExpanded && (<p className='questionBody'><span className='a'>A:</span>{question.body}</p>)}
       </div>
     )
   }

@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import './App.css'
 import './DashboardLoggedIn.js'
-import Login from './Login'
+// import Login from './Login'
 import 'shoelace-css/dist/shoelace.css'
 import request from 'superagent'
 
@@ -14,6 +14,8 @@ class Profile extends Component {
       userQuestions: '?????????',
       userAnswers: 'Answers'
     }
+
+    this.logout = this.logout.bind(this)
   }
 
   componentDidMount () {
@@ -30,46 +32,18 @@ class Profile extends Component {
         })
       })
   }
-  // handleChange=(event) => {
-  //     const value = event.target.value
-  //     const name = event.target.name
-  //     this.setState({
-  //         [name]: value
-  //     })
-  // }
 
-  // handleSubmit = (event) => {
-  //     event.preventDefault()
-  //     request
-  //         .post('https://whispering-stream-62515.herokuapp.com/api/v1/sessions')
-  //         .set('X-Requested-With', 'XMLHttpRequest')
-  //         .send({
-  //         username: this.state.username,
-  //         password: this.state.password
-  //         })
-  //         .then(res => {
-  //         console.log(res)
-  //         localStorage.token = res.body.token
-  //         this.props.updateToken()
-  //         })
-  //         .catch(err => {
-  //             const form = document.querySelectorAll('.input-field')
-  //             form.forEach(field => {
-  //                 field.classList.add('input-invalid')
-  //             })
-  //             const password = document.querySelector('.password')
-  //             const error = document.createElement('p')
-  //             error.classList.add('text-danger')
-  //             error.innerText = 'Incorrect username or password'
-  //             password.append(error)
-  //         })
-  // }
+  logout () {
+    localStorage.clear()
+    this.props.updateToken()
+  }
 
   render () {
     return (
       <div className='Profile'>
         <h1>PROFILE</h1>
         <button className='button-danger' onClick={this.props.profileState}>Cancel</button>
+        <button onClick={this.logout}>Logout</button>
         <div>{this.state.username}</div>
         <div>{this.state.email}</div>
         {/* <div>{this.state.userQuestions[0]}</div>

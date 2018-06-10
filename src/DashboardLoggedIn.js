@@ -22,6 +22,13 @@ class DashboardLoggedIn extends Component {
     this.handleSearch = this.handleSearch.bind(this)
     this.clickProfile = this.clickProfile.bind(this)
     this.closeProfile = this.closeProfile.bind(this)
+    this.addNewQuestion = this.addNewQuestion.bind(this)
+  }
+
+  addNewQuestion (res) {
+    this.setState({
+      questions: this.state.questions.concat(res)
+    })
   }
 
   submitOrCancel () {
@@ -87,7 +94,7 @@ class DashboardLoggedIn extends Component {
             <h1 className='title'>code{'{interview}'}</h1>
           </header>
           <div>
-            <AskQuestionForm submitOrCancel={this.submitOrCancel} />
+            <AskQuestionForm submitOrCancel={this.submitOrCancel} addNewQuestion={this.addNewQuestion} />
           </div>
         </div>
       )
