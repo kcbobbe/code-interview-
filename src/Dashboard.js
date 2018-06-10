@@ -3,7 +3,7 @@ import './App.css'
 import 'shoelace-css/dist/shoelace.css'
 import Question from './Question'
 import request from 'superagent'
-import AskQuestionForm from './AskQuestionForm'
+// import AskQuestionForm from './AskQuestionForm'
 import Login from './Login'
 import Register from './Register'
 
@@ -64,7 +64,7 @@ class Dashboard extends Component {
       .then(res => {
         console.log(res)
         this.setState({
-          questions: res.body
+          questions: res.body.questions
         })
       })
   }
@@ -138,6 +138,7 @@ class Dashboard extends Component {
               <span className='input-addon input-addon-xl'>Q:</span>
               <input type='text' className='searchBar input-xl' placeholder='search...' onChange={this.handleSearch} />
             </div>
+            <button onClick={this.clickLogin}>Login to ask a question!</button>
             <div className='questions-container'>
               {this.state.questions.map((question, idx) => (
                 <div key={idx}>
@@ -145,7 +146,6 @@ class Dashboard extends Component {
                 </div>
               ))}
             </div>
-            <button onClick={this.clickLogin}>Login to ask a question</button>
           </div>
         </div>
       )
