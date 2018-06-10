@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
-import './App.css';
+import React, {Component} from 'react'
+import './App.css'
 import './DashboardLoggedIn.js'
 import Login from './Login'
-import 'shoelace-css/dist/shoelace.css';
+import 'shoelace-css/dist/shoelace.css'
 import request from 'superagent'
 
 class Profile extends Component {
@@ -18,7 +18,7 @@ class Profile extends Component {
 
   componentDidMount () {
     request
-      .get('https://whispering-stream-62515.herokuapp.com/api/v1/users/1')
+      .get(`https://whispering-stream-62515.herokuapp.com/api/v1/users/${localStorage.id}`)
       .set('X-Requested-With', 'XMLHttpRequest')
       .then(res => {
         console.log(res)

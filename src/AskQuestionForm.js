@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
 import 'shoelace-css/dist/shoelace.css'
-// import request from 'superagent'
+import request from 'superagent'
 // import Dashboard from './Dashboard'
 // import Login from './Login'
 
@@ -9,10 +9,8 @@ class AskQuestionForm extends Component {
   constructor () {
     super()
     this.state = {
-      // askQuestion: this.props.askQuestion,
-      askQuestion: null,
-      questionTitle: null,
-      questionBody: null
+      questionTitle: '',
+      questionBody: ''
     }
 
     this.addQuestion = this.addQuestion.bind(this)
@@ -26,20 +24,14 @@ class AskQuestionForm extends Component {
 
   addQuestion (e) {
     e.preventDefault()
-    // request
-    //   .post('http://localhost:8000/Questions')
-    //   .send({
-    //     'title': this.state.questionTitle,
-    //     'body': this.state.questionBody,
-    //     'userId': 3
-    //   })
-    //   .then((res) => {
-    //     this.setState({
-    //       askQuestion: false,
-    //       questionTitle: '',
-    //       questionBody: ''
-    //     })
-    //   })
+    request
+      .post('https://whispering-stream-62515.herokuapp.com/api/v1/questions')
+      .set('X-Requested-With', 'XMLHttpRequest')
+      .set('Authorization', `Bearer ${localStorage.token}`)
+      .send({
+        title: this.state.questionTitle
+      })
+
     this.props.submitOrCancel()
   }
   questionTitle (event) {
