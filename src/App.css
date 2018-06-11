@@ -99,6 +99,10 @@
   display: none;
 }
 
+.user-answers {
+  margin: 50px;
+}
+
 
 /* .App-logo {
   animation: App-logo-spin infinite 20s linear;

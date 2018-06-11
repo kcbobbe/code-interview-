@@ -13,7 +13,7 @@ class Profile extends Component {
       username: '',
       email: '',
       userQuestions: [],
-      userAnswers: 'Answers'
+      userAnswers: []
     }
 
     this.logout = this.logout.bind(this)
@@ -31,10 +31,11 @@ class Profile extends Component {
           username: res.body.data.attributes.username,
           email: res.body.data.attributes.email_address,
           userQuestions: res.body.data.attributes.questions.questions,
-          userAnswers: res.body.data.attributes.answers,
+          userAnswers: res.body.data.attributes.answers.answers,
           questionNumber: res.body.data.attributes.questions.total_questions,
           answerNumber: res.body.data.attributes.answers.total_answers
         })
+
         this.getQuestions(res.body.data.attributes.questions.next)
       })
   }
@@ -58,6 +59,7 @@ class Profile extends Component {
   }
 
   render () {
+    console.log(this.state.userAnswers)
     return (
       <div className='Profile'>
         <h1>Your Proflie</h1>
@@ -77,13 +79,15 @@ class Profile extends Component {
         </div>
         <div className='answers-column'>
           <h2>Answers you've submitted!</h2>
-          {/* <div className='answers-container'>
+          <div className='answers-container'>
             {this.state.userAnswers.map((question, idx) => (
-              <div key={idx}>
-                <Answer />
+              <div key={idx} className='user-answers'>
+                <h1>{question.question_title}</h1>
+                <p>{question.question_body}</p>
+                <p>{question.text}</p>
               </div>
             ))}
-          </div> */}
+          </div>
         </div>
         <button className='button-danger' onClick={this.props.profileState}>Cancel</button>
         <button onClick={this.logout}>Logout</button>

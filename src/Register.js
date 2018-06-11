@@ -42,17 +42,17 @@ class Register extends Component {
         <h1>Register</h1>
           <form onSubmit={this.handleSubmit}>
               <div className="input-field input-group">
-                <span class='input-addon input-addon-l'>Username:</span>
+                <span className='input-addon input-addon-l'>Username:</span>
                   <input name="username" value={this.state.username} onChange={this.handleChange} type="text"/>
               </div>
 
               <div className="input-field input-group">
-                  <span class='input-addon input-addon-l'>Password:</span>
+                  <span className='input-addon input-addon-l'>Password:</span>
                   <input name="password" value={this.state.password} onChange={this.handleChange} type="password"/>
               </div>
 
               <div className="input-field input-group">
-                  <span class='input-addon input-addon-l'>Email:</span>
+                  <span className='input-addon input-addon-l'>Email:</span>
                   <input name="email" value={this.state.email} onChange={this.handleChange} type="email"/>
               </div>
               <div className='register-buttons'>

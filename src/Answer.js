@@ -9,8 +9,11 @@ class Answer extends Component {
   constructor () {
     super()
     this.state = {
-      user: []
+      user: [],
+      validated: null
     }
+
+    this.validate = this.validate.bind(this)
   }
 
   componentDidMount () {
@@ -24,7 +27,26 @@ class Answer extends Component {
       })
   }
 
+  validate (e) {
+    // console.log('click')
+    // console.log(e.target)
+    console.log(this.props.answer.id)
+    request
+      .patch(`https://whispering-stream-62515.herokuapp.com/api/v1/answers/${this.props.answer.id}`)
+      .set('X-Requested-With', 'XMLHttpRequest')
+      .set('Authorization', `Bearer ${localStorage.token}`)
+      .send({
+        valid_answer: true
+      })
+      .then(res => {
+        this.setState({
+          validated: res.body.valid_answer
+        })
+      })
+  }
+
   render () {
+    console.log(this.props.answer)
     const converter = new showdown.Converter()
     return (
       <div className='Answer'>
@@ -32,7 +54,7 @@ class Answer extends Component {
         <h3>{this.state.user.username}</h3>
         <div dangerouslySetInnerHTML={{__html: converter.makeHtml(this.props.answer.text)}} />
         {this.props.user_id == localStorage.id && (
-          <button>Mark as correct answer!</button>
+          <button onClick={this.validate}>Mark as correct answer!</button>
         )}
       </div>
     )

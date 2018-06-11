@@ -87,6 +87,7 @@ class DashboardLoggedIn extends Component {
   }
 
   render () {
+    console.log('hello')
     if (this.state.askQuestion) {
       return (
         <div>
