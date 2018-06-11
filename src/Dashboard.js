@@ -66,6 +66,7 @@ class Dashboard extends Component {
         this.setState({
           questions: res.body.questions
         })
+        this.getQuestions(res.body.next)
       })
   }
 
@@ -81,14 +82,16 @@ class Dashboard extends Component {
     })
   }
 
-  getQuestions () {
+  getQuestions (next) {
     request
-      .get('http://localhost:8000/Questions')
+      .get(`https://whispering-stream-62515.herokuapp.com/api/v1${next}`)
       .then(res => {
-        console.log(res)
         this.setState({
-          questions: res.body
+          questions: this.state.questions.concat(res.body.questions)
         })
+        if (res.body.next) {
+          this.getQuestions(res.body.next)
+        }
       })
   }
 
@@ -104,7 +107,8 @@ class Dashboard extends Component {
           </header>
           <div>
             <div className='input-group'>
-              <input type='text' placeholder='search...' onChange={this.handleSearch} />
+              <span className='input-addon input-addon-xl'>Q:</span>
+              <input type='text' className='searchBar input-xl' placeholder='search...' onChange={this.handleSearch} />
             </div>
             <button onClick={this.clickLogin}>Login to ask a question</button>
             <div className='questions-container'>
