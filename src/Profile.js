@@ -21,8 +21,8 @@ class Profile extends Component {
 
   componentDidMount () {
     request
-      // .get(`https://whispering-stream-62515.herokuapp.com/api/v1/users/${localStorage.id}`)
-      .get(`https://whispering-stream-62515.herokuapp.com/api/v1/users/4`)
+      .get(`https://whispering-stream-62515.herokuapp.com/api/v1/users/${localStorage.id}`)
+      // .get(`https://whispering-stream-62515.herokuapp.com/api/v1/users/4`)
       .set('X-Requested-With', 'XMLHttpRequest')
       .then(res => {
         console.log(res)
@@ -59,6 +59,16 @@ class Profile extends Component {
               </div>
             ))}
           </div>
+        </div>
+        <div className='answers-column'>
+          <h2>Answers you've submitted!</h2>
+          {/* <div className='answers-container'>
+            {this.state.userAnswers.map((question, idx) => (
+              <div key={idx}>
+                <Answer />
+              </div>
+            ))}
+          </div> */}
         </div>
         <button className='button-danger' onClick={this.props.profileState}>Cancel</button>
         <button onClick={this.logout}>Logout</button>
