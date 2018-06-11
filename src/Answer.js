@@ -18,7 +18,6 @@ class Answer extends Component {
       .get(`https://whispering-stream-62515.herokuapp.com/api/v1/users/${this.props.answer.user_id}`)
       .set('X-Requested-With', 'XMLHttpRequest')
       .then(res => {
-        // console.log(res)
         this.setState({
           user: res.body.data.attributes
         })
@@ -26,10 +25,15 @@ class Answer extends Component {
   }
 
   render () {
+    const converter = new showdown.Converter()
     return (
       <div className='Answer'>
+        <h4 className='hidden'>Correct Answer!</h4>
         <h3>{this.state.user.username}</h3>
-        <div>{this.props.answer.text}</div>
+        <div dangerouslySetInnerHTML={{__html: converter.makeHtml(this.props.answer.text)}} />
+        {this.props.user_id == localStorage.id && (
+          <button>Mark as correct answer!</button>
+        )}
       </div>
     )
   }

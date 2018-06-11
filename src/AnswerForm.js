@@ -29,7 +29,10 @@ class AnswerForm extends Component {
         })
         .then(res => {
           console.log(res)
+          const newAnswer = res.body
+          this.props.updateAnswer(newAnswer)
         })
+      document.querySelector('.form').reset()
     }
   }
 
@@ -40,10 +43,9 @@ class AnswerForm extends Component {
   }
 
   render () {
-    console.log(this.state.answer)
     return (
       <div className='AnswerForm'>
-        <form onClick={this.submitAnswer}>
+        <form onClick={this.submitAnswer} className='form'>
           <textarea onChange={this.handleChange} />
           <button type='submit'>Submit Answer!</button>
         </form>

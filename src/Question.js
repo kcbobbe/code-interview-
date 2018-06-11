@@ -13,13 +13,20 @@ class Question extends Component {
     this.state = {
       questionExpanded: false,
       answers: [],
-      id: ''
+      id: '',
+      user_id: ''
     }
     this.expandQuestion = this.expandQuestion.bind(this)
+    this.updateAnswers = this.updateAnswers.bind(this)
+  }
+
+  updateAnswers (newAnswer) {
+    this.setState({
+      answers: this.state.answers.concat(newAnswer)
+    })
   }
 
   expandQuestion (e) {
-    console.log(e.target.dataset.id)
     const id = e.target.dataset.id
     this.setState({questionExpanded: !this.state.questionExpanded})
     request
@@ -29,7 +36,8 @@ class Question extends Component {
         console.log(res)
         this.setState({
           answers: res.body.data.attributes.answers,
-          id: res.body.data.attributes.id
+          id: res.body.data.attributes.id,
+          user_id: res.body.data.attributes.user_id
         })
       })
   }
@@ -46,11 +54,11 @@ class Question extends Component {
             <button onClick={this.expandQuestion} data-id={question.id} className='answer-button'>Show Less</button>
             {this.state.answers.map((answer, idx) => (
               <div className='answer' key={idx}>
-                <Answer answer={answer} />
+                <Answer answer={answer} user_id={this.state.user_id} />
               </div>
             ))}
             <div className='answer-form'>
-              <AnswerForm id={this.state.id} />
+              <AnswerForm id={this.state.id} updateAnswer={this.updateAnswers} />
             </div>
           </div>
         ) : (

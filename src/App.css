@@ -93,6 +93,12 @@
   border-radius: 10px;
 }
 
+.hidden {
+  background: lightgreen;
+  padding: 10px;
+  display: none;
+}
+
 
 /* .App-logo {
   animation: App-logo-spin infinite 20s linear;
