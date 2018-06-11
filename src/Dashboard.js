@@ -90,7 +90,7 @@ class Dashboard extends Component {
         <div>
           <header className='header'>
             <h1 className='title'>code{'{interview}'}</h1>
-            <button className='login' onClick={this.clickLogin}>Login</button>
+            <button className='login button-dark' onClick={this.clickLogin}>Login</button>
             <button onClick={this.clickRegister}>Register</button>
           </header>
           <div>
