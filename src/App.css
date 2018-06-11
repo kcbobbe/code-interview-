@@ -96,7 +96,7 @@
 .hidden {
   background: lightgreen;
   padding: 10px;
-  display: none;
+  /* display: none; */
 }
 
 .user-answers {
