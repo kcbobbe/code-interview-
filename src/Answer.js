@@ -25,12 +25,13 @@ class Answer extends Component {
           user: res.body.data.attributes
         })
       })
+    console.log(this.props.answer)
   }
 
   validate (e) {
     // console.log('click')
     // console.log(e.target)
-    console.log(this.props.answer.id)
+    // console.log(this.props.answer.id)
     request
       .patch(`https://whispering-stream-62515.herokuapp.com/api/v1/answers/${this.props.answer.id}`)
       .set('X-Requested-With', 'XMLHttpRequest')
@@ -46,18 +47,30 @@ class Answer extends Component {
   }
 
   render () {
-    console.log(this.props.answer)
+    // console.log(this.props.answer)
     const converter = new showdown.Converter()
-    return (
-      <div className='Answer'>
-        <h4 className='hidden'>Correct Answer!</h4>
-        <h3>{this.state.user.username}</h3>
-        <div dangerouslySetInnerHTML={{__html: converter.makeHtml(this.props.answer.text)}} />
-        {this.props.user_id == localStorage.id && (
-          <button onClick={this.validate}>Mark as correct answer!</button>
-        )}
-      </div>
-    )
+    if (this.props.answer.valid_answer) {
+      return (
+        <div className='Answer'>
+          <h4 className='hidden'>Correct Answer!</h4>
+          <h3>{this.state.user.username}</h3>
+          <div dangerouslySetInnerHTML={{__html: converter.makeHtml(this.props.answer.text)}} />
+          {this.props.user_id == localStorage.id && (
+            <button onClick={this.validate}>Mark as correct answer!</button>
+          )}
+        </div>
+      )
+    } else {
+      return (
+        <div className='Answer'>
+          <h3>{this.state.user.username}</h3>
+          <div dangerouslySetInnerHTML={{__html: converter.makeHtml(this.props.answer.text)}} />
+          {this.props.user_id == localStorage.id && (
+            <button onClick={this.validate}>Mark as correct answer!</button>
+          )}
+        </div>
+      )
+    }
   }
 }
 
