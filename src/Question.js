@@ -51,7 +51,7 @@ class Question extends Component {
         <div dangerouslySetInnerHTML={{__html: converter.makeHtml(question.body)}} />
         {this.state.questionExpanded ? (
           <div>
-            <button onClick={this.expandQuestion} data-id={question.id} className='answer-button'>Show Less</button>
+            <button onClick={this.expandQuestion} data-id={question.id} className='answer-button button-block button-light'>Show Less</button>
             {this.state.answers.map((answer, idx) => (
               <div className='answer' key={idx}>
                 <Answer answer={answer} user_id={this.state.user_id} />
@@ -62,7 +62,7 @@ class Question extends Component {
             </div>
           </div>
         ) : (
-          <button onClick={this.expandQuestion} data-id={question.id} className='answer-button'>Show Answers</button>
+          <button onClick={this.expandQuestion} data-id={question.id} className='answer-button button-block button-light'>Show Answers</button>
         )}
       </div>
     )

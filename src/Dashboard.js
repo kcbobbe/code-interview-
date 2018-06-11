@@ -6,7 +6,6 @@ import request from 'superagent'
 // import AskQuestionForm from './AskQuestionForm'
 import Login from './Login'
 import Register from './Register'
-
 class Dashboard extends Component {
   constructor () {
     super()
@@ -17,7 +16,6 @@ class Dashboard extends Component {
       loginClicked: false,
       registerClicked: false
     }
-
     this.askQuestionForm = this.askQuestionForm.bind(this)
     this.getQuestions = this.getQuestions.bind(this)
     this.submitOrCancel = this.submitOrCancel.bind(this)
@@ -27,37 +25,31 @@ class Dashboard extends Component {
     this.clickRegister = this.clickRegister.bind(this)
     this.cancelRegister = this.cancelRegister.bind(this)
   }
-
   submitOrCancel () {
     this.setState({
       askQuestion: false
     })
   }
-
   clickLogin () {
     this.setState({
       loginClicked: true
     })
   }
-
   cancelLogin () {
     this.setState({
       loginClicked: false
     })
   }
-
   clickRegister () {
     this.setState({
       registerClicked: true
     })
   }
-
   cancelRegister () {
     this.setState({
       registerClicked: false
     })
   }
-
   componentDidMount () {
     request
       .get('https://whispering-stream-62515.herokuapp.com/api/v1/questions')
@@ -69,19 +61,16 @@ class Dashboard extends Component {
         this.getQuestions(res.body.next)
       })
   }
-
   handleSearch (event) {
     this.setState({
       searchValue: event.target.value
     })
   }
-
   askQuestionForm () {
     this.setState({
       askQuestion: true
     })
   }
-
   getQuestions (next) {
     request
       .get(`https://whispering-stream-62515.herokuapp.com/api/v1${next}`)
@@ -94,7 +83,6 @@ class Dashboard extends Component {
         }
       })
   }
-
   render () {
     if (this.state.searchValue) {
       const filteredArray = this.state.questions.filter(question => question.title.toLowerCase().includes(this.state.searchValue.toLowerCase()))
@@ -156,5 +144,4 @@ class Dashboard extends Component {
     }
   }
 }
-
 export default Dashboard

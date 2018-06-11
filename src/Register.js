@@ -38,21 +38,25 @@ class Register extends Component {
 
     render () {
     return (
+        <div>
+        <header className='header'>
+        <h1 className='title'>code{'{interview}'}</h1>
+      </header>
         <div className='Register'>
         <h1>Register</h1>
           <form onSubmit={this.handleSubmit}>
               <div className="input-field input-group">
-                <span className='input-addon input-addon-l'>Username:</span>
+                <span class='input-addon input-addon-l'>Username:</span>
                   <input name="username" value={this.state.username} onChange={this.handleChange} type="text"/>
               </div>
 
               <div className="input-field input-group">
-                  <span className='input-addon input-addon-l'>Password:</span>
+                  <span class='input-addon input-addon-l'>Password:</span>
                   <input name="password" value={this.state.password} onChange={this.handleChange} type="password"/>
               </div>
 
               <div className="input-field input-group">
-                  <span className='input-addon input-addon-l'>Email:</span>
+                  <span class='input-addon input-addon-l'>Email:</span>
                   <input name="email" value={this.state.email} onChange={this.handleChange} type="email"/>
               </div>
               <div className='register-buttons'>
@@ -61,6 +65,7 @@ class Register extends Component {
                 </div>
             </form>
         </div>
+    </div>
     )
     }
 }

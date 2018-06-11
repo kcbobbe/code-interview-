@@ -47,7 +47,7 @@ class AnswerForm extends Component {
       <div className='AnswerForm'>
         <form onSubmit={this.submitAnswer} className='form'>
           <textarea onChange={this.handleChange} />
-          <button type='submit'>Submit Answer!</button>
+          <button type='submit' className='button-dark'>Submit Answer!</button>
         </form>
       </div>
     )
