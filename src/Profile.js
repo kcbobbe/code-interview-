@@ -17,6 +17,7 @@ class Profile extends Component {
     }
 
     this.logout = this.logout.bind(this)
+    this.getQuestions = this.getQuestions.bind(this)
   }
 
   componentDidMount () {
@@ -34,6 +35,20 @@ class Profile extends Component {
           questionNumber: res.body.data.attributes.questions.total_questions,
           answerNumber: res.body.data.attributes.answers.total_answers
         })
+        this.getQuestions(res.body.data.attributes.questions.next)
+      })
+  }
+
+  getQuestions (next) {
+    request
+      .get(`https://whispering-stream-62515.herokuapp.com/api/v1${next}`)
+      .then(res => {
+        this.setState({
+          userQuestions: this.state.userQuestions.concat(res.body.data.attributes.questions.questions)
+        })
+        if (res.body.next) {
+          this.getQuestions(res.body.data.attributes.questions.next)
+        }
       })
   }
 
