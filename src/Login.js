@@ -33,6 +33,7 @@ class Login extends Component {
             .then(res => {
             console.log(res)
             localStorage.token = res.body.token
+            localStorage.id = res.body.id
             this.props.updateToken()
             this.setState({
                 userId :res.id
