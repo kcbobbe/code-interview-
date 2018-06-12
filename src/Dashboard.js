@@ -123,9 +123,11 @@ class Dashboard extends Component {
         <div>
           <header className='header'>
             <div className='row row-start'>
-              <h1 className='title col-6'>code{'{interview}'}</h1>
-              <button className='login button-light col-2' onClick={this.clickLogin}>Login</button>
-              <button className='button-light col-2' onClick={this.clickRegister}>Register</button>
+              <h1 className='title col-4'>code{'{interview}'}</h1>
+            </div>
+            <div className='row row-end'>
+              <button className='login button-light col-3' onClick={this.clickLogin}>Login</button>
+              <button className='button-light col-3' onClick={this.clickRegister}>Register</button>
             </div>
             {/* <div className='row row-end'>
               <p>A forum for practicing code interview questions and code challenges. Share your questions and answers with the community!</p>
