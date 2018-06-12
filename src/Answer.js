@@ -53,8 +53,8 @@ class Answer extends Component {
       return (
         <div className='Answer'>
           <h4 className='hidden'>Correct Answer!</h4>
-          <h3>{this.state.user.username}</h3>
           <div dangerouslySetInnerHTML={{__html: converter.makeHtml(this.props.answer.text)}} />
+          <h3>{this.state.user.username}</h3>
           {this.props.user_id == localStorage.id && (
             <button onClick={this.validate}>Mark as correct answer!</button>
           )}
@@ -63,8 +63,8 @@ class Answer extends Component {
     } else {
       return (
         <div className='Answer'>
-          <h3>{this.state.user.username}</h3>
           <div dangerouslySetInnerHTML={{__html: converter.makeHtml(this.props.answer.text)}} />
+          <p className='answerContributer'>Answered by <strong>{this.state.user.username}</strong></p>
           {this.props.user_id == localStorage.id && (
             <button onClick={this.validate}>Mark as correct answer!</button>
           )}

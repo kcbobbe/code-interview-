@@ -110,7 +110,7 @@ class DashboardLoggedIn extends Component {
             <span className='input-addon input-addon-xl'>Q:</span>
             <input type='text'className='input-xl searchBar' placeholder='search...' onChange={this.handleSearch} />
           </div>
-          <button onClick={this.askQuestionForm} >Ask a question!</button>
+          <button className='button-block button-light' onClick={this.askQuestionForm} >Ask a question!</button>
           <div className='questions-container'>
             {filteredArray.map((question, idx) => (
               <div key={idx}>
@@ -140,7 +140,7 @@ class DashboardLoggedIn extends Component {
             <span className='input-addon input-addon-xl'>Q:</span>
             <input className='searchBar input-xl' type='text' placeholder='search...' onChange={this.handleSearch} />
           </div>
-          <button onClick={this.askQuestionForm} >Ask a question!</button>
+          <button className='button-block button-light' onClick={this.askQuestionForm} >Ask a question!</button>
           <div className='questions-container'>
             {this.state.questions.map((question, idx) => (
               <div key={idx}>

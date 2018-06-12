@@ -10,10 +10,6 @@
   padding:5px;
 }
 
-.Question:hover {
-  background-color:rgba(150,150,150,1);
-}
-
 .Login {
   padding: 10px;
   margin: auto;
@@ -26,7 +22,7 @@
 
 .header {
   background-color:grey;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   display:flex;
   justify-content:space-between;
   margin:20px 10px 20px 10px;
@@ -38,18 +34,21 @@
   margin:10px;
 }
 
-.input-group{
+/* .input-group{
   width:10px;
-}
+} */
 
 .questions-container {
   margin:20px 10px 10px 10px;
   background-color:grey;
-  padding:10px;
-  border: 2px solid black;
-  max-height:600px;
+  border-top:10px solid grey;
+  border-bottom:10px solid grey;
+  padding:5px 5px 5px 5px;
+  /* border: 2px solid black; */
+  max-height:500px;
   overflow:scroll;
 }
+
 .questionbox {
   text-align:left;
 }
@@ -88,9 +87,15 @@
 }
 
 .answer {
-  margin: 20px 10px;
+  margin: 10px 10px;
+  padding: 10px;
   background: white;
   border-radius: 10px;
+}
+
+.answerContributor{
+  margin:0;
+  padding:0;
 }
 
 .hidden {
@@ -100,8 +105,10 @@
 }
 
 .user-answers {
-  margin: 50px;
+  margin: 30px;
 }
+
+
 
 
 /* .App-logo {
