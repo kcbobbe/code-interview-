@@ -25,7 +25,7 @@
   /* border: 2px solid black; */
   display:flex;
   justify-content:space-between;
-  margin:20px 0 20px 10px;
+  margin-bottom: 20px;
   padding:10px 0 10px 0;
   align-content: center;
 
@@ -66,10 +66,11 @@
 }
 
 .questions-container {
-  margin:20px 10px 10px 10px;
-  background-color:grey;
+  /* margin:20px 10px 10px 10px; */
+  margin-top:20px;
+  /* background-color:grey;
   border-top:10px solid grey;
-  border-bottom:10px solid grey;
+  border-bottom:10px solid grey; */
   padding:5px 5px 5px 5px;
   /* border: 2px solid black; */
   max-height:500px;
@@ -78,23 +79,24 @@
 
 .user-QA{
   display:flex;
+  justify-content:space-around;
   
 }
 
 .questions-column{
   margin-top:20px;
-  width:50%;
+  width:47%;
 }
 
 .answers-column{
   margin-top:20px;
-  width:50%;
+  width:47%;
 }
 .answers-container{
-  margin:20px 10px 10px 10px;
-  background-color:grey;
+  margin-top:20px;
+  /* background-color:grey;
   border-top:10px solid grey;
-  border-bottom:10px solid grey;
+  border-bottom:10px solid grey; */
   /* padding:5px 5px 5px 5px; */
   /* border: 2px solid black; */
   max-height:500px;
@@ -102,13 +104,13 @@
 }
 
 .user-answers{
-  margin:2px;
   background-color:#E6E6E6;
-  border:2px solid black;
+  border:2px solid grey;;
   /* padding:20px; */
 }
 
 .user-info{
+  padding:1rem;
   background-color:#E6E6E6;
 
 }
@@ -129,9 +131,9 @@
   text-align:left;
 }
 
-.input-group{
+/* .input-group{
   padding: 0 1rem 0 1rem;
-}
+} */
 
 .searchBar{
   width:40px;
@@ -177,10 +179,16 @@
 }
 
 .askQ{
-
+  
 }
 
+.question-field{
+  margin:20px;
+}
 
+.AskQuestionForm button{
+  margin:1rem;
+}
 
 /* .App-logo {
   animation: App-logo-spin infinite 20s linear;

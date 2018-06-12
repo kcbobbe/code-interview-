@@ -1,3 +1,5 @@
+/* global localStorage */
+
 import React, {Component} from 'react'
 import './App.css'
 import './DashboardLoggedIn.js'
@@ -26,7 +28,7 @@ class Profile extends Component {
       // .get(`https://whispering-stream-62515.herokuapp.com/api/v1/users/4`)
       .set('X-Requested-With', 'XMLHttpRequest')
       .then(res => {
-        console.log(res)
+        // console.log(res)
         this.setState({
           username: res.body.data.attributes.username,
           email: res.body.data.attributes.email_address,
@@ -59,11 +61,11 @@ class Profile extends Component {
   }
 
   render () {
-    console.log(this.state.userAnswers)
+    // console.log(this.state.userAnswers)
     return (
       <div className='Profile'>
         <div className='user-info'>
-          <h1>Your Proflie</h1>
+          <h1>Your Profile</h1>
           <div>Username: {this.state.username}</div>
           <div>Email Address: {this.state.email}</div>
           <div>Number of questions asked: {this.state.questionNumber}</div>
@@ -94,8 +96,8 @@ class Profile extends Component {
           </div>
         </div>
         <div className='profile-buttons'>
-          <button className='button-danger' onClick={this.props.profileState}>Cancel</button>
-          <button onClick={this.logout}>Logout</button>
+          <button className='button-light' onClick={this.props.profileState}>Back</button>
+          <button className='button-danger' onClick={this.logout}>Logout</button>
         </div>
         {/* <div>{this.state.userQuestions[0]}</div>
         <div>{this.state.userAnswers[0]}</div> */}

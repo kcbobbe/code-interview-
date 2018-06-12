@@ -31,7 +31,7 @@ class Login extends Component {
             password: this.state.password
             })
             .then(res => {
-            console.log(res)
+            // console.log(res)
             localStorage.token = res.body.token
             localStorage.id = res.body.id
             this.props.updateToken()
@@ -63,12 +63,12 @@ class Login extends Component {
             <h2 className='subheader'>Login</h2>
             <form onSubmit={this.handleSubmit}>
                 <div className="input-field input-group">
-                    <span class='input-addon input-addon-l'>Name:</span>
+                    <span className='input-addon input-addon-l'>Name:</span>
                     <input name="username" value={this.state.username} className='login-input input-l' onChange={this.handleChange} type="text"/>
                 </div>
 
                 <div className="input-field input-group password">
-                    <span class='input-addon input-addon-l'>Password:</span>
+                    <span className='input-addon input-addon-l'>Password:</span>
                     <input name="password" value={this.state.password} className ='login-input input-l' onChange={this.handleChange} type="password"/>
                 </div>
                 <div className='login-buttons'>

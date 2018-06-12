@@ -1,3 +1,5 @@
+/* global localStorage */
+
 import React, { Component } from 'react'
 import './App.css'
 import 'shoelace-css/dist/shoelace.css'
@@ -34,7 +36,7 @@ class AskQuestionForm extends Component {
           body: this.state.questionBody
         })
         .then(res => {
-          console.log(res.body.data.attributes)
+          // console.log(res.body.data.attributes)
           let newRes = res.body.data.attributes
           this.props.addNewQuestion(newRes)
         })
@@ -58,8 +60,13 @@ class AskQuestionForm extends Component {
     return (
       <div className='AskQuestionForm'>
         <form onSubmit={this.addQuestion}>
-          <input type='text' placeholder='title' onChange={this.questionTitle} />
-          <textarea onChange={this.questionBody} />
+          Add a question:
+          <div className='question-field'>
+            <input type='text' placeholder='Title' onChange={this.questionTitle} />
+          </div>
+          <div className='question-field'>
+            <textarea placeholder='Question' onChange={this.questionBody} />
+          </div>
           <button className='button-danger' onClick={this.cancelAdd}>Cancel</button>
           <button className='button-success' type='submit'>Submit</button>
         </form>

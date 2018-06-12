@@ -104,14 +104,14 @@ class DashboardLoggedIn extends Component {
         <div>
           <header className='header'>
             <h1 className='title'>code{'{interview}'}</h1>
-            <button className='profileButton' onClick={this.clickProfile}>Your Account</button>
+            <button className='profileButton button-light' onClick={this.clickProfile}>Your Account</button>
           </header>
           <div className='input-group'>
             <span className='input-addon input-addon-xl'>Q:</span>
             <input type='text'className='input-xl searchBar' placeholder='search...' onChange={this.handleSearch} />
           </div>
           <div className='askQ'>
-            <button className='button-block button-light' onClick={this.askQuestionForm} >Ask a question!</button>
+            <button className='button-light' onClick={this.askQuestionForm} >Ask a question!</button>
           </div>
           <div className='questions-container'>
             {filteredArray.map((question, idx) => (
@@ -136,7 +136,7 @@ class DashboardLoggedIn extends Component {
         <div className='Dashboard'>
           <header className='header'>
             <h1 className='title'>code{'{interview}'}</h1>
-            <button className='profileButton' onClick={this.clickProfile}>Your Account</button>
+            <button className='profileButton button-light' onClick={this.clickProfile}>Your Account</button>
           </header>
           <div className='input-group'>
             <span className='input-addon input-addon-xl'>Q:</span>

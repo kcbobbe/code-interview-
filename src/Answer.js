@@ -1,3 +1,5 @@
+/* global localStorage */
+
 import React, { Component } from 'react'
 import './App.css'
 import 'shoelace-css/dist/shoelace.css'
@@ -25,7 +27,7 @@ class Answer extends Component {
           user: res.body.data.attributes
         })
       })
-    console.log(this.props.answer)
+    // console.log(this.props.answer)
   }
 
   validate (e) {
@@ -40,9 +42,11 @@ class Answer extends Component {
         valid_answer: true
       })
       .then(res => {
+        // console.log(res)
         this.setState({
           validated: res.body.valid_answer
         })
+        this.props.validateAnswer(res.body.id, res.body.text)
       })
   }
 
@@ -54,10 +58,9 @@ class Answer extends Component {
         <div className='Answer'>
           <h4 className='hidden'>Correct Answer!</h4>
           <div dangerouslySetInnerHTML={{__html: converter.makeHtml(this.props.answer.text)}} />
-          <p className='answerContributor'>{this.state.user.username}</p>
-          {this.props.user_id == localStorage.id && (
+          {/* {this.props.user_id == localStorage.id && (
             <button onClick={this.validate}>Mark as correct answer!</button>
-          )}
+          )} */}
         </div>
       )
     } else {

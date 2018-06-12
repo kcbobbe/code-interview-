@@ -54,7 +54,7 @@ class Dashboard extends Component {
     request
       .get('https://whispering-stream-62515.herokuapp.com/api/v1/questions')
       .then(res => {
-        console.log(res)
+        // console.log(res)
         this.setState({
           questions: res.body.questions
         })
@@ -140,7 +140,7 @@ class Dashboard extends Component {
             </div> */}
           </header>
           <div className='Dashboard'>
-            <div className='input-group'>
+            <div className='input-group searchBar-input'>
               <span className='input-addon input-addon-xl'>Q:</span>
               <input type='text' className='searchBar input-xl' placeholder='search...' onChange={this.handleSearch} />
             </div>
