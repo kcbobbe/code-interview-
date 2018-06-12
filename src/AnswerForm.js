@@ -48,9 +48,13 @@ class AnswerForm extends Component {
     return (
       <div className='AnswerForm'>
         <form onSubmit={this.submitAnswer} className='form submit-answerForm'>
-          <strong>Your Answer:</strong>
-          <textarea onChange={this.handleChange} />
-          <button type='submit' className='button-dark'>Submit Answer!</button>
+          {localStorage.token && (
+            <div>
+              <strong>Your Answer:</strong>
+              <textarea onChange={this.handleChange} />
+              <button type='submit' className='button-dark'>Submit Answer!</button>
+            </div>
+          )}
         </form>
       </div>
     )
