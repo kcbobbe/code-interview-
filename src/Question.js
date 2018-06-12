@@ -18,12 +18,18 @@ class Question extends Component {
     }
     this.expandQuestion = this.expandQuestion.bind(this)
     this.updateAnswers = this.updateAnswers.bind(this)
+    this.validateAnswer = this.validateAnswer.bind(this)
   }
 
   updateAnswers (newAnswer) {
     this.setState({
       answers: this.state.answers.concat(newAnswer)
     })
+  }
+
+  validateAnswer (id) {
+    const idx = this.state.answers.findIndex(answer => answer.id === id)
+    console.log(idx)
   }
 
   expandQuestion (e) {
@@ -54,7 +60,7 @@ class Question extends Component {
             <button onClick={this.expandQuestion} data-id={question.id} className='answer-button button-block button-light'>Show Less</button>
             {this.state.answers.map((answer, idx) => (
               <div className='answer' key={idx}>
-                <Answer answer={answer} user_id={this.state.user_id} />
+                <Answer answer={answer} user_id={this.state.user_id} validateAnswer={this.validateAnswer} />
               </div>
             ))}
             <div className='answer-form'>
