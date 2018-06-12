@@ -27,9 +27,17 @@ class Question extends Component {
     })
   }
 
-  validateAnswer (id) {
+  validateAnswer (id, text) {
     const idx = this.state.answers.findIndex(answer => answer.id === id)
-    console.log(idx)
+    // console.log(idx)
+    const newAnswers = this.state.answers
+    newAnswers.splice(idx, 1, {
+      text: text,
+      valid_answer: true
+    })
+    this.setState({
+      answers: newAnswers
+    })
   }
 
   expandQuestion (e) {
@@ -39,7 +47,7 @@ class Question extends Component {
       .get(`https://whispering-stream-62515.herokuapp.com/api/v1/questions/${id}`)
       .set('X-Requested-With', 'XMLHttpRequest')
       .then(res => {
-        console.log(res)
+        // console.log(res)
         this.setState({
           answers: res.body.data.attributes.answers,
           id: res.body.data.attributes.id,

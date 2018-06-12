@@ -1,3 +1,5 @@
+/* global localStorage */
+
 import React, { Component } from 'react'
 import './App.css'
 import 'shoelace-css/dist/shoelace.css'
@@ -34,7 +36,7 @@ class AskQuestionForm extends Component {
           body: this.state.questionBody
         })
         .then(res => {
-          console.log(res.body.data.attributes)
+          // console.log(res.body.data.attributes)
           let newRes = res.body.data.attributes
           this.props.addNewQuestion(newRes)
         })

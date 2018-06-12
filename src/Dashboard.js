@@ -54,7 +54,7 @@ class Dashboard extends Component {
     request
       .get('https://whispering-stream-62515.herokuapp.com/api/v1/questions')
       .then(res => {
-        console.log(res)
+        // console.log(res)
         this.setState({
           questions: res.body.questions
         })

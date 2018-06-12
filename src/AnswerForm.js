@@ -1,7 +1,9 @@
+/* global localStorage */
+
 import React, { Component } from 'react'
 import './App.css'
 import 'shoelace-css/dist/shoelace.css'
-import showdown from 'showdown'
+// import showdown from 'showdown'
 // import { request } from 'https';
 import request from 'superagent'
 
@@ -28,7 +30,7 @@ class AnswerForm extends Component {
           text: this.state.answer
         })
         .then(res => {
-          console.log(res)
+          // console.log(res)
           const newAnswer = res.body
           this.props.updateAnswer(newAnswer)
         })

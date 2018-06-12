@@ -1,3 +1,5 @@
+/* global localStorage */
+
 import React, {Component} from 'react'
 import './App.css'
 import './DashboardLoggedIn.js'
@@ -26,7 +28,7 @@ class Profile extends Component {
       // .get(`https://whispering-stream-62515.herokuapp.com/api/v1/users/4`)
       .set('X-Requested-With', 'XMLHttpRequest')
       .then(res => {
-        console.log(res)
+        // console.log(res)
         this.setState({
           username: res.body.data.attributes.username,
           email: res.body.data.attributes.email_address,
@@ -59,7 +61,7 @@ class Profile extends Component {
   }
 
   render () {
-    console.log(this.state.userAnswers)
+    // console.log(this.state.userAnswers)
     return (
       <div className='Profile'>
         <h1>Your Proflie</h1>
