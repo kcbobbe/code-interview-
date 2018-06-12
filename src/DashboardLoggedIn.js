@@ -104,13 +104,15 @@ class DashboardLoggedIn extends Component {
         <div>
           <header className='header'>
             <h1 className='title'>code{'{interview}'}</h1>
-            <button className='profileButton' onClick={this.clickProfile}>Welcome User!</button>
+            <button className='profileButton' onClick={this.clickProfile}>Your Account</button>
           </header>
           <div className='input-group'>
             <span className='input-addon input-addon-xl'>Q:</span>
             <input type='text'className='input-xl searchBar' placeholder='search...' onChange={this.handleSearch} />
           </div>
-          <button className='button-block button-light' onClick={this.askQuestionForm} >Ask a question!</button>
+          <div className='askQ'>
+            <button className='button-block button-light' onClick={this.askQuestionForm} >Ask a question!</button>
+          </div>
           <div className='questions-container'>
             {filteredArray.map((question, idx) => (
               <div key={idx}>
@@ -134,13 +136,15 @@ class DashboardLoggedIn extends Component {
         <div className='Dashboard'>
           <header className='header'>
             <h1 className='title'>code{'{interview}'}</h1>
-            <button className='profileButton' onClick={this.clickProfile}>View your profile!</button>
+            <button className='profileButton' onClick={this.clickProfile}>Your Account</button>
           </header>
           <div className='input-group'>
             <span className='input-addon input-addon-xl'>Q:</span>
             <input className='searchBar input-xl' type='text' placeholder='search...' onChange={this.handleSearch} />
           </div>
-          <button className='button-block button-light' onClick={this.askQuestionForm} >Ask a question!</button>
+          <div className='askQ'>
+            <button className='button-block button-light askQ' onClick={this.askQuestionForm} >Ask a question!</button>
+          </div>
           <div className='questions-container'>
             {this.state.questions.map((question, idx) => (
               <div key={idx}>

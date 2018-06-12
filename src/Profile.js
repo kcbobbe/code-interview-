@@ -62,35 +62,41 @@ class Profile extends Component {
     console.log(this.state.userAnswers)
     return (
       <div className='Profile'>
-        <h1>Your Proflie</h1>
-        <div>Username: {this.state.username}</div>
-        <div>Email Address: {this.state.email}</div>
-        <div>Number of questions asked: {this.state.questionNumber}</div>
-        <div>Number of questions answered: {this.state.answerNumber}</div>
-        <div className='questions-column'>
-          <h2>Questions you've asked!</h2>
-          <div className='questions-container'>
-            {this.state.userQuestions.map((question, idx) => (
-              <div key={idx}>
-                <Question question={question} />
-              </div>
-            ))}
+        <div className='user-info'>
+          <h1>Your Proflie</h1>
+          <div>Username: {this.state.username}</div>
+          <div>Email Address: {this.state.email}</div>
+          <div>Number of questions asked: {this.state.questionNumber}</div>
+          <div>Number of questions answered: {this.state.answerNumber}</div>
+        </div>
+        <div className='user-QA'>
+          <div className='questions-column'>
+            <div><strong>Questions you've asked!</strong></div>
+            <div className='questions-container profile-box'>
+              {this.state.userQuestions.map((question, idx) => (
+                <div key={idx}>
+                  <Question question={question} />
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className='answers-column'>
+            <div><strong>Answers you've submitted!</strong></div>
+            <div className='answers-container'>
+              {this.state.userAnswers.map((answer, idx) => (
+                <div key={idx} className='user-answers'>
+                  <div><strong>Q: {answer.question_title}</strong></div>
+                  <div>{answer.question_body}</div>
+                  <div>A: {answer.text}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-        <div className='answers-column'>
-          <h2>Answers you've submitted!</h2>
-          <div className='answers-container'>
-            {this.state.userAnswers.map((question, idx) => (
-              <div key={idx} className='user-answers'>
-                <h1>{question.question_title}</h1>
-                <p>{question.question_body}</p>
-                <p>{question.text}</p>
-              </div>
-            ))}
-          </div>
+        <div className='profile-buttons'>
+          <button className='button-danger' onClick={this.props.profileState}>Cancel</button>
+          <button onClick={this.logout}>Logout</button>
         </div>
-        <button className='button-danger' onClick={this.props.profileState}>Cancel</button>
-        <button onClick={this.logout}>Logout</button>
         {/* <div>{this.state.userQuestions[0]}</div>
         <div>{this.state.userAnswers[0]}</div> */}
       </div>

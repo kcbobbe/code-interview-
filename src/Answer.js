@@ -40,7 +40,6 @@ class Answer extends Component {
         valid_answer: true
       })
       .then(res => {
-        console.log(res)
         this.setState({
           validated: res.body.valid_answer
         })
@@ -55,7 +54,7 @@ class Answer extends Component {
         <div className='Answer'>
           <h4 className='hidden'>Correct Answer!</h4>
           <div dangerouslySetInnerHTML={{__html: converter.makeHtml(this.props.answer.text)}} />
-          <h3>{this.state.user.username}</h3>
+          <p className='answerContributor'>{this.state.user.username}</p>
           {this.props.user_id == localStorage.id && (
             <button onClick={this.validate}>Mark as correct answer!</button>
           )}
@@ -65,7 +64,7 @@ class Answer extends Component {
       return (
         <div className='Answer'>
           <div dangerouslySetInnerHTML={{__html: converter.makeHtml(this.props.answer.text)}} />
-          <p className='answerContributer'>Answered by <strong>{this.state.user.username}</strong></p>
+          <div className='answerContributor'>Answered by <strong>{this.state.user.username}</strong></div>
           {this.props.user_id == localStorage.id && (
             <button onClick={this.validate}>Mark as correct answer!</button>
           )}

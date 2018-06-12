@@ -24,18 +24,46 @@
   background-color:grey;
   /* border: 2px solid black; */
   display:flex;
-  /* justify-content:space-between; */
-  margin:20px 10px 20px 10px;
+  justify-content:space-between;
+  margin:20px 0 20px 10px;
+  padding:10px 0 10px 0;
+  align-content: center;
+
+}
+
+.header h1 {
   padding:10px;
-
 }
 
-.header button {
+.profileButton {
+  margin:20px;
 }
+
+
+.subheader {
+  margin-bottom:30px;
+}
+
+.login-register {
+  padding:5px 20px 5px 5px;
+  margin:5px;
+}
+
+.login-register button{
+  margin:5px;
+}
+
+.profile-buttons button{
+  margin:1rem;
+}
+
 
 /* .input-group{
   width:10px;
 } */
+.submit-answerForm button{
+  margin-top:10px;
+}
 
 .questions-container {
   margin:20px 10px 10px 10px;
@@ -46,6 +74,43 @@
   /* border: 2px solid black; */
   max-height:500px;
   overflow:scroll;
+}
+
+.user-QA{
+  display:flex;
+  
+}
+
+.questions-column{
+  margin-top:20px;
+  width:50%;
+}
+
+.answers-column{
+  margin-top:20px;
+  width:50%;
+}
+.answers-container{
+  margin:20px 10px 10px 10px;
+  background-color:grey;
+  border-top:10px solid grey;
+  border-bottom:10px solid grey;
+  /* padding:5px 5px 5px 5px; */
+  /* border: 2px solid black; */
+  max-height:500px;
+  overflow:scroll;
+}
+
+.user-answers{
+  margin:2px;
+  background-color:#E6E6E6;
+  border:2px solid black;
+  /* padding:20px; */
+}
+
+.user-info{
+  background-color:#E6E6E6;
+
 }
 
 .questionbox {
@@ -75,6 +140,10 @@
 .login-buttons button{
   margin:1rem;
 
+}
+
+.register-buttons button{
+  margin:1rem;
 }
 
 .input-addon-l{
@@ -107,6 +176,9 @@
   margin: 30px;
 }
 
+.askQ{
+
+}
 
 
 
