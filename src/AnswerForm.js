@@ -47,7 +47,8 @@ class AnswerForm extends Component {
   render () {
     return (
       <div className='AnswerForm'>
-        <form onSubmit={this.submitAnswer} className='form'>
+        <form onSubmit={this.submitAnswer} className='form submit-answerForm'>
+          <strong>Your Answer:</strong>
           <textarea onChange={this.handleChange} />
           <button type='submit' className='button-dark'>Submit Answer!</button>
         </form>

@@ -89,16 +89,23 @@ class Dashboard extends Component {
       return (
         <div>
           <header className='header'>
-            <h1 className='title'>code{'{interview}'}</h1>
-            <button className='login button-dark' onClick={this.clickLogin}>Login</button>
-            <button onClick={this.clickRegister}>Register</button>
+            <div className='header-title'>
+              <h1 className='title'>code{'{interview}'}</h1>
+            </div>
+            <div className='row login-register'>
+              <button className='login button-light' onClick={this.clickLogin}>Login</button>
+              <button className='button-light' onClick={this.clickRegister}>Register</button>
+            </div>
+            {/* <div className='row row-end'>
+              <p>A forum for practicing code interview questions and code challenges. Share your questions and answers with the community!</p>
+            </div> */}
           </header>
           <div>
             <div className='input-group'>
               <span className='input-addon input-addon-xl'>Q:</span>
               <input type='text' className='searchBar input-xl' placeholder='search...' onChange={this.handleSearch} />
             </div>
-            <button onClick={this.clickLogin}>Login to ask a question</button>
+            <button className='button-block button-light askQ' onClick={this.clickLogin}>Login to ask a question!</button>
             <div className='questions-container'>
               {filteredArray.map((question, idx) => (
                 <div key={idx}>
@@ -121,16 +128,23 @@ class Dashboard extends Component {
       return (
         <div>
           <header className='header'>
-            <h1 className='title'>code{'{interview}'}</h1>
-            <button className='login' onClick={this.clickLogin}>Login</button>
-            <button onClick={this.clickRegister}>Register</button>
+            <div className='header-title'>
+              <h1 className='title'>code{'{interview}'}</h1>
+            </div>
+            <div className='row login-register'>
+              <button className='login button-light' onClick={this.clickLogin}>Login</button>
+              <button className='button-light' onClick={this.clickRegister}>Register</button>
+            </div>
+            {/* <div className='row row-end'>
+              <p>A forum for practicing code interview questions and code challenges. Share your questions and answers with the community!</p>
+            </div> */}
           </header>
           <div className='Dashboard'>
-            <div className='input-group'>
+            <div className='input-group searchBar-input'>
               <span className='input-addon input-addon-xl'>Q:</span>
               <input type='text' className='searchBar input-xl' placeholder='search...' onChange={this.handleSearch} />
             </div>
-            <button onClick={this.clickLogin}>Login to ask a question!</button>
+            <button className='button-block button-light askQ' onClick={this.clickLogin}>Login to ask a question!</button>
             <div className='questions-container'>
               {this.state.questions.map((question, idx) => (
                 <div key={idx}>

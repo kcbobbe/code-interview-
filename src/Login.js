@@ -60,7 +60,7 @@ class Login extends Component {
           </header>
         <div className='Login'>
         
-            <h1>Login</h1>
+            <h2 className='subheader'>Login</h2>
             <form onSubmit={this.handleSubmit}>
                 <div className="input-field input-group">
                     <span className='input-addon input-addon-l'>Name:</span>

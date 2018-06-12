@@ -43,7 +43,7 @@ class Register extends Component {
         <h1 className='title'>code{'{interview}'}</h1>
       </header>
         <div className='Register'>
-        <h1>Register</h1>
+        <h2 className='subheader'>Register a new account</h2>
           <form onSubmit={this.handleSubmit}>
               <div className="input-field input-group">
                 <span class='input-addon input-addon-l'>Username:</span>

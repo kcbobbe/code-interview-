@@ -60,8 +60,13 @@ class AskQuestionForm extends Component {
     return (
       <div className='AskQuestionForm'>
         <form onSubmit={this.addQuestion}>
-          <input type='text' placeholder='title' onChange={this.questionTitle} />
-          <textarea onChange={this.questionBody} />
+          Add a question:
+          <div className='question-field'>
+            <input type='text' placeholder='Title' onChange={this.questionTitle} />
+          </div>
+          <div className='question-field'>
+            <textarea placeholder='Question' onChange={this.questionBody} />
+          </div>
           <button className='button-danger' onClick={this.cancelAdd}>Cancel</button>
           <button className='button-success' type='submit'>Submit</button>
         </form>

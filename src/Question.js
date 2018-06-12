@@ -61,7 +61,7 @@ class Question extends Component {
     let question = this.props.question
     return (
       <div className='Question'>
-        <h1>{question.title}</h1>
+        <h2>{question.title}</h2>
         <div dangerouslySetInnerHTML={{__html: converter.makeHtml(question.body)}} />
         {this.state.questionExpanded ? (
           <div>
