@@ -40,6 +40,7 @@ class Answer extends Component {
         valid_answer: true
       })
       .then(res => {
+        console.log(res)
         this.setState({
           validated: res.body.valid_answer
         })
